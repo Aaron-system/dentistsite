@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Contact Us {% endblock %}
+{% block meta_description %}  {% endblock %}
+
+
+{% block content %}
+
+	<section id="inner-headline">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="pageTitle">Contact Us</h2>
+			</div>
+		</div>
+	</div>
+	</section>
+
+
+    {% if name %}
+
+         <div style="text-align: center;">
+                <h2>Thanks {{ name }}</h2>
+                <p>We received your email and will respond shortly</p>
+            </div>
+        <br/>
+    {% endif %}
+
+
+
+	<section id="content">
+	<div class="container">
+		<div class="row">
+							<div class="col-md-12">
+								<div class="about-logo">
+									<h3>Get<span class="color"> in Touch </span></h3>
+									<p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas</p>
+                                    	<p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas</p>
+								</div>
+							</div>
+						</div>
+	<div class="row">
+								<div class="col-md-6">
+									<p> </p>
+
+		   <!-- Form itself -->
+          <form name="sentMessage" id="contactForm"  method="POST">
+              {% csrf_token %}
+		 <div class="input-field">
+			<input type="text" name="name" class="form-control"
+			   	   id="name" required
+			           data-validation-required-message="Please enter your name" />
+					   <label for="name" class=""> Name </label>
+			  <p class="help-block"></p>
+
+	         </div>
+                <div class="input-field">
+			<input type="email" name=email class="form-control" id="email" required
+			   		   data-validation-required-message="Please enter your email" />
+					   <label for="name" class="">   Email </label>
+	    </div>
+
+               <div class="input-field">
+				 <textarea name = message rows="10" cols="100" required class="form-control materialize-textarea"
+                       idation-required-message="Please enter your message" minlength="5"
+                       data-validation-minlength-message="Min 5 characters"
+                        maxlength="999" style="resize:none"></textarea>
+						 <label for="name" class="">   Message </label>
+		  </div>
+	     <div id="success"> </div> <!-- For success/fail messages -->
+	    <button type="submit" class="btn btn-primary waves-effect waves-dark pull-right">Send</button><br />
+          </form>
+								</div>
+								<div class="col-md-6">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6621.0317403509935!2d151.07335987282136!3d-33.92785767037978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12bbdd1c27d737%3A0xf017d68f9f225d0!2sWiley%20Park!5e0!3m2!1sen!2sau!4v1637235355474!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+								</div>
+							</div>
+	</div>
+
+	</section>
+
+
+{% endblock %}
+
